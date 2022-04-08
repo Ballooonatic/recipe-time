@@ -1,0 +1,76 @@
+<h1 mat-dialog-title>{{ recipe.title }} Recipe & Ingredients</h1>
+
+<div mat-dialog-content>
+    <mat-chip-list>
+        <mat-chip color="accent" selected>Servings: {{ recipe.servings }}</mat-chip>
+        <mat-chip color="primary" selected>Prep time: {{ recipe.prepTime }} minutes</mat-chip>
+        <mat-chip color="warn" selected>Cook time: {{ recipe.cookTime }} minutes</mat-chip>
+    </mat-chip-list>
+
+    <!-- <pre>{{specials | json}}</pre> -->
+
+    <h4>What you'll need</h4>
+    <mat-list role="list" dense>
+        <mat-list-item role="listitem" *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.amount }} {{ ingredient.measurement }} {{ ingredient.name }}
+            <div *ngFor="let special of specials">
+                <p *ngIf="special.ingredientId === ingredient.uuid" class="specials">
+                    <b>{{ special.title }}:</b> {{ special.text }}
+                </p>
+            </div>
+        </mat-list-item>
+    </mat-list>
+
+    <h4>Directions</h4>
+    <mat-list role="list" dense>
+        <mat-list-item role="listitem" *ngFor="let step of recipe.directions">
+            {{ step.instructions }} {{ step.optional ? "(optional)" : "" }}
+        </mat-list-item>
+    </mat-list>
+
+</div>
+
+<!-- <pre>{{ recipe | json }}</pre> -->
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
+
+<!-- Recipe {
+    uuid: String;
+    title: String;
+    description: String;
+    images: {
+        full: String;
+        medium: String;
+        small: String;
+    }
+    servings: Number;
+    prepTime: Number;
+    cookTime: Number;
+    postDate: Date;
+    editDate: Date;
+    ingredients: Ingredient[];
+    directions: Direction[];
+}
+
+Ingredient {
+    uuid: String;
+    amount: Number;
+    measurement: String;
+    name: String;
+}
+
+Direction {
+    instructions: String;
+    optional: Boolean;
+}
+
+Special {
+    uuid: String;
+    ingredientId: String;
+    type: String;
+    title: String;
+    geo?: String;
+    text?: String;
+} -->
