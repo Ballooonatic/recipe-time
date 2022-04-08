@@ -23,7 +23,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.recipesSubscription = this.recipeService.getRecipes().subscribe(res => {
       this.recipes = res as Recipe[];
-      this.openDialog(this.recipes[0])
     });
   }
 

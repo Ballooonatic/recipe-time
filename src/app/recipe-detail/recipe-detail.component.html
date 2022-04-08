@@ -7,8 +7,6 @@
         <mat-chip color="warn" selected>Cook time: {{ recipe.cookTime }} minutes</mat-chip>
     </mat-chip-list>
 
-    <!-- <pre>{{specials | json}}</pre> -->
-
     <h4>What you'll need</h4>
     <mat-list role="list" dense>
         <mat-list-item role="listitem" *ngFor="let ingredient of recipe.ingredients">
@@ -30,47 +28,6 @@
 
 </div>
 
-<!-- <pre>{{ recipe | json }}</pre> -->
-
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
 </div>
-
-<!-- Recipe {
-    uuid: String;
-    title: String;
-    description: String;
-    images: {
-        full: String;
-        medium: String;
-        small: String;
-    }
-    servings: Number;
-    prepTime: Number;
-    cookTime: Number;
-    postDate: Date;
-    editDate: Date;
-    ingredients: Ingredient[];
-    directions: Direction[];
-}
-
-Ingredient {
-    uuid: String;
-    amount: Number;
-    measurement: String;
-    name: String;
-}
-
-Direction {
-    instructions: String;
-    optional: Boolean;
-}
-
-Special {
-    uuid: String;
-    ingredientId: String;
-    type: String;
-    title: String;
-    geo?: String;
-    text?: String;
-} -->
